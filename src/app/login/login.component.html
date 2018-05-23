@@ -1,0 +1,17 @@
+<form [formGroup]="loginForm" class="form-signin">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" placeholder="Email address" formControlName="email" class="form-control" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+       <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
+          <label class="error">{{errorMessage}}</label>
+     
+      <button type="submit" (click)="tryLogin(loginForm.value)" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button><br>
+       <button type="button" class="btn btn-danger btn-block" (click)="tryGoogleLogin()">Login with Google</button><br>
+     <p>No account yet? <a routerLink="/register">Create an account</a></p>
+    </form>
+
+
+
+
+  

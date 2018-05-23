@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-3" *ngFor="let imagePost of postList">
+    <div class="card" [class.bg-light]="imagePost.isPublic === false">
+  <img class="card-img-top" src="{{imagePost.url}}" alt="{{imagePost.name}}">
+  <div class="card-body">
+    <h5 class="card-title">{{imagePost.name}}</h5>
+    <p class="card-text">{{imagePost.caption}}</p>
+    
+    <div *ngIf="loggedinUsr == imagePost.auther">
+      <a class="btn" (click)="onEdit(imagePost)">
+          edit
+        </a>
+        <a class="btn" (click)="onDelete(imagePost.$key)">
+          delete
+        </a>
+    </div>
+    
+  </div>
+</div>
+  </div>
+
+</div>

@@ -1,0 +1,13 @@
+<form [formGroup]="registerForm" class="form-signin">
+      <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" placeholder="Email address" formControlName="email" class="form-control" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+       <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
+          <label class="error">{{errorMessage}}</label>
+          <label class="success">{{successMessage}}</label>
+     
+      <button type="submit" (click)="tryRegister(registerForm.value)" class="btn btn-lg btn-primary btn-block">Register</button><br>
+       <button type="button" class="btn btn-danger btn-block" (click)="tryGoogleLogin()">Register with Google</button><br>
+     <p>Already have an account? <a routerLink="/login">Login</a></p>
+    </form>
