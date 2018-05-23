@@ -42,33 +42,39 @@ private firebasestorage: any;
  }
   insertPost(post : ImagePost,file:File)
   {
-    this.firebasestorage.ref('posts/' + post.name).put(file).then(
+    let imgname = new Date().getTime() + file.name;
+    this.firebasestorage.ref('posts/' + imgname).put(file).then(
                 snapshot => {
                     post.url = snapshot.downloadURL;
+                    post.imgname= imgname;
                     this.postList.push({
       name : post.name,
       url : post.url,
       auther : post.auther,
+      imgname: post.imgname,
       isPublic : post.isPublic,
       caption :post.caption,
-      timestamp :new Date()
+      modified :Date.now()
     });
                 });
     
   }
  
   updatePostFile(post : ImagePost,file:File){
-    this.firebasestorage.ref('posts/' + post.name).put(file).then(
+    let imgname = new Date().getTime() + file.name;
+    this.firebasestorage.ref('posts/' + imgname).put(file).then(
                 snapshot => {
                     post.url = snapshot.downloadURL;
-    
+                    post.imgname= imgname;
     this.postList.update(post.$key,
       {
         name : post.name,
         url : post.url,
+        imgname: post.imgname,
         //auther : post.auther,
         isPublic : post.isPublic,
-        caption :post.caption
+        caption :post.caption,
+        modified :Date.now()
       });
         });
   }
@@ -80,13 +86,14 @@ private firebasestorage: any;
        // url : post.url,
         //auther : post.auther,
         isPublic : post.isPublic,
-        caption :post.caption
+        caption :post.caption,
+        modified :Date.now()
       });
   }
  
   deletePost(post : ImagePost){
     
-var desertRef = this.firebasestorage.ref().child('posts/'+ post.name);
+var desertRef = this.firebasestorage.ref().child('posts/'+ post.imgname);
 // Delete the file
 desertRef.delete().then(function() {
   console.log("Image Deleted");

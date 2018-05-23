@@ -4,12 +4,16 @@
       <h1 class="h3 mb-3 font-weight-normal">{{pgtitle}}</h1>
       <label for="inputTitle" class="sr-only">Title</label>
       <input type="text" id="inputTitle" placeholder="Title" name="name" #name="ngModel" [(ngModel)]="postService.selectedPost.name" class="form-control" required autofocus>
+      <br>
       <label for="inputImage" class="sr-only">Image</label>
       <input type="file" (change)="selectFile($event)" class="form-control" accept=".jpg,.png" id="file" name="file" placeholder="image" required>
-      
+      <br>
       <label for="inputprivate" class="sr-only">Public</label>
       <mat-slide-toggle value="false" id="inputprivate" name="isPublic" #isPublic="ngModel" [(ngModel)]="postService.selectedPost.isPublic">Public</mat-slide-toggle>
+      <br><br>
       <label for="inputCaption" class="sr-only">Caption</label>
       <input type="text" id="inputCaption" name="caption" #caption="ngModel" [(ngModel)]="postService.selectedPost.caption" placeholder="Caption" class="form-control">
-      <button type="submit" [disabled]="!postForm.valid || !validInput" class="btn btn-lg btn-primary btn-block">{{btnTxt}}</button><br>
+      <br>
+      <button type="submit" [disabled]="!postForm.valid || !validInput" class="btn btn-primary">{{btnTxt}}</button>
+      <button class="btn btn-default" type="button" (click)="resetForm(postForm)">Reset</button><br>
     </form>

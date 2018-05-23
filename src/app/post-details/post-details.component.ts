@@ -79,10 +79,11 @@ btnTxt:string = "Upload";
       $key: null,
       name: '',
       url : '',
+      imgname:'',
       auther : '',
       isPublic : false,
       caption :'',
-      timestamp  : new Date()
+      modified  : new Date()
     }
   }
 

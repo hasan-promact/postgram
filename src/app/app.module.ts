@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
@@ -17,6 +18,7 @@ import { AuthService } from './core/auth.service';
 import { UserService } from './core/user.service';
 import { UserResolver } from './user/user.resolver';
 import {PostService} from './core/post.service';
+import {PagerService} from './core/pager.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/templates/header/header.component';
@@ -53,7 +55,7 @@ import { PostDetailsComponent } from './post-details/post-details.component';
     AngularFireAuthModule,
     MatSlideToggleModule
   ],
-  providers: [AuthService, UserService, UserResolver, AuthGuard,PostService],
+  providers: [AuthService, UserService, UserResolver, AuthGuard,PostService,PagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,9 +2,10 @@ export class ImagePost {
     $key : string;
     name : string;
     url : string;
+    imgname : string;
     auther : string;
     isPublic : boolean;
     caption :string;
-    timestamp : Date = new Date();
+    modified : Date = new Date();
 }
 

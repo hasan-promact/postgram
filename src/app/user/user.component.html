@@ -7,12 +7,12 @@
     <p class="card-text">{{imagePost.caption}}</p>
     
     <div *ngIf="loggedinUsr == imagePost.auther">
-      <a class="btn" (click)="onEdit(imagePost)">
-          edit
-        </a>
-        <a class="btn" (click)="onDelete(imagePost)">
-          delete
-        </a>
+      <button type="button" class="btn btn-info" (click)="onEdit(imagePost)">
+          Edit
+        </button>
+        <button type="button" class="btn btn-danger" (click)="onDelete(imagePost)">
+          Delete
+        </button>
     </div>
     
   </div>
