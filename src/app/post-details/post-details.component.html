@@ -1,7 +1,7 @@
 <form #postForm="ngForm" class="form-signin" (ngSubmit)="onSubmit(postForm)">
   <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="postService.selectedPost.$key">
   <input type="hidden" name="auther" #auther="ngModel" [(ngModel)]="usrmail">
-      <h1 class="h3 mb-3 font-weight-normal">Upload Your Image</h1>
+      <h1 class="h3 mb-3 font-weight-normal">{{pgtitle}}</h1>
       <label for="inputTitle" class="sr-only">Title</label>
       <input type="text" id="inputTitle" placeholder="Title" name="name" #name="ngModel" [(ngModel)]="postService.selectedPost.name" class="form-control" required autofocus>
       <label for="inputImage" class="sr-only">Image</label>
@@ -11,5 +11,5 @@
       <mat-slide-toggle value="false" id="inputprivate" name="isPublic" #isPublic="ngModel" [(ngModel)]="postService.selectedPost.isPublic">Public</mat-slide-toggle>
       <label for="inputCaption" class="sr-only">Caption</label>
       <input type="text" id="inputCaption" name="caption" #caption="ngModel" [(ngModel)]="postService.selectedPost.caption" placeholder="Caption" class="form-control">
-      <button type="submit" [disabled]="!postForm.valid || !validInput" class="btn btn-lg btn-primary btn-block">Upload</button><br>
+      <button type="submit" [disabled]="!postForm.valid || !validInput" class="btn btn-lg btn-primary btn-block">{{btnTxt}}</button><br>
     </form>

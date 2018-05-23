@@ -32,9 +32,9 @@ export class UserComponent implements OnInit {
     this.router.navigate(['/edit-post', pst.$key]);
   }
  
-  onDelete(key: string) {
+  onDelete(pst: ImagePost) {
     if (confirm('Are you sure to delete this record ?') == true) {
-      this.postService.deletePost(key);
+      this.postService.deletePost(pst);
       this.tostr.warning("Deleted Successfully", "Post");
     }
   }

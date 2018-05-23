@@ -15,6 +15,8 @@ export class PostDetailsComponent implements OnInit {
  validInput:boolean = false;
 post:any;
 id: number;
+pgtitle:string = "Upload Your Image";
+btnTxt:string = "Upload";
   private sub: any;
   constructor(
     private route: ActivatedRoute,
@@ -40,9 +42,11 @@ id: number;
     this.route.params.subscribe(params => {
       if(params['id']){
        this.id = params['id'];
-       this.validInput= true;
        this.postService.selectPost(this.id)
-
+       this.validInput= true;
+       this.pgtitle = "Update your post";
+       this.btnTxt = "Update";
+      
       }else{
 
       } 
@@ -57,7 +61,12 @@ id: number;
     if (postForm.value.$key == null){
       this.postService.insertPost(postForm.value, fle);
     }else{
-      this.postService.updatePost(postForm.value);
+      if(fle != undefined){
+        this.postService.updatePostFile(postForm.value, fle);
+      }else{
+        this.postService.updatePost(postForm.value);
+      }
+      
     }
     this.resetForm(postForm);
     this.tostr.success('Submitted Succcessfully', 'Post uploaded');
